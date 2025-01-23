@@ -1,41 +1,40 @@
-import './App.css'; // Add this line at the top of your App.js
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import SearchBar from "./components/SearchBar";
-//import Map from "./components/Map";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
 
-const App = () => {
+// Pages
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import SitesPage from './pages/SitesPage';
+import RegisterPage from './pages/RegisterPage';
+
+function App() {
   return (
     <Router>
-      <div className="App">
-        <header>
+      <div className="app">
+        <header className="header">
           <h1>Cultural Heritage Tracker</h1>
           <nav>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/register">Get Started</Link>
+            <Link to="/Sites">Sites</Link>
           </nav>
         </header>
-
-        <div className="main-content">
-          <SearchBar />
+        <main>
           <Routes>
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/" element={<div>Welcome to the Cultural Heritage Tracker</div>} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/sites" element={<SitesPage />} />
           </Routes>
-        </div>
-
-        <footer>
-          <p>2025 © Cultural Heritage Tracker</p>
+        </main>
+        <footer className="footer">
+          <p>© 2025 Cultural Heritage Tracker. All rights reserved.</p>
         </footer>
       </div>
     </Router>
   );
-};
+}
 
 export default App;

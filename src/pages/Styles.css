@@ -1,0 +1,106 @@
+/* General Page Styles */
+.page {
+    font-family: 'Arial', sans-serif;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 1rem;
+  }
+  
+  /* Forms */
+  .form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-input {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-button {
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Links */
+  .link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Search Input */
+  .search-input {
+    padding: 0.8rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Site List */
+  .site-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .site-card {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .site-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #0056b3;
+  }
+  
+  .site-card p {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+  
+    .form-input, .search-input {
+      width: 100%;
+    }
+  }
+  

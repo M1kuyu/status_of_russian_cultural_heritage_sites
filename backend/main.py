@@ -6,6 +6,8 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from fastapi import FastAPI, HTTPException, Depends, WebSocket
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select  # Import the select function
+from sqlalchemy import text  # Import the text function
 from app.database import SessionLocal, init_db
 from app.models.heritage_site import HeritageSite
 from app.models.user import User
@@ -15,6 +17,17 @@ from passlib.context import CryptContext
 
 app = FastAPI()
 
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Dependency to get the database session
 async def get_db():
     async with SessionLocal() as session:
@@ -22,7 +35,7 @@ async def get_db():
 
 @app.on_event("startup")
 async def startup():
-    init_db()
+    await init_db()  # Await the init_db function
 
 @app.get("/")
 def root():
@@ -40,8 +53,8 @@ async def add_site(site: HeritageSiteSchema, db: AsyncSession = Depends(get_db))
 # Get all cultural sites
 @app.get("/sites/", response_model=List[HeritageSiteSchema])
 async def get_sites(db: AsyncSession = Depends(get_db)):
-    result = await db.execute("SELECT * FROM cultural_sites")
-    sites = result.fetchall()
+    result = await db.execute(select(HeritageSite))  # Use select() for ORM
+    sites = result.scalars().all()  # Get all results
     return [HeritageSiteSchema.from_orm(site) for site in sites]
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
