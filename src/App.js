@@ -8,17 +8,18 @@ import AboutPage from './pages/AboutPage';
 import SitesPage from './pages/SitesPage';
 import RegisterPage from './pages/RegisterPage';
 
+
 function App() {
   return (
     <Router>
       <div className="app">
         <header className="header">
-          <h1>Cultural Heritage Tracker</h1>
+          <h1>Отсоеживание объектов культурного наследия</h1>
           <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/register">Get Started</Link>
-            <Link to="/Sites">Sites</Link>
+            <Link to="/">На главную</Link>
+            <Link to="/about">О проекте</Link>
+            <Link to="/register">Регистрация</Link>
+            <Link to="/sites">Объекты</Link>
           </nav>
         </header>
         <main>
@@ -30,7 +31,7 @@ function App() {
           </Routes>
         </main>
         <footer className="footer">
-          <p>© 2025 Cultural Heritage Tracker. All rights reserved.</p>
+          <p>© 2025 Отсоеживание объектов культурного наследия</p>
         </footer>
       </div>
     </Router>

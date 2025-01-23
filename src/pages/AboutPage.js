@@ -2,11 +2,12 @@ import React from 'react';
 
 const AboutPage = () => {
   return (
+    
     <div>
-      <h1>About Cultural Heritage Tracker</h1>
-      <p>
-        Cultural Heritage Tracker is a platform dedicated to preserving Russia's cultural heritage sites by providing tools for tracking, monitoring, and collaborating on their protection.
-      </p>
+    <h1>О Проекте</h1>
+      <h2>Бывает так, что иногда наша история исчезает, и мы обязаны беречь ее отголоски.  Сервис помогает отслеживать статус объектов культурного значения, чтобы своевременно реагировать на исчезновение объекта из реестра и своевременно предпринимать действия по его спасению.</h2>
+     
+      
     </div>
   );
 };

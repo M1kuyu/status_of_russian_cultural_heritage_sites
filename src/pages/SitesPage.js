@@ -19,14 +19,20 @@ const SitesPage = () => {
     fetchSites();
   }, []);
 
-  // Filter sites based on search term
-  const filteredSites = sites.filter((site) =>
-    site.ObjectNameOnDoc?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter sites based on search term across multiple attributes
+  const filteredSites = sites.filter((site) => {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    return (
+      site.ObjectNameOnDoc?.toLowerCase().includes(lowerCaseSearchTerm) ||
+      site.Category?.toLowerCase().includes(lowerCaseSearchTerm) ||
+      site.Location?.toLowerCase().includes(lowerCaseSearchTerm) ||
+      site.SecurityStatus?.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+  });
 
   return (
     <div className="page">
-      <h1 className="page-title">Cultural Heritage Sites</h1>
+      <h1 className="page-title">Объекты культурного значения</h1>
       <input
         type="text"
         placeholder="Search sites..."
@@ -39,9 +45,9 @@ const SitesPage = () => {
           filteredSites.map((site) => (
             <div key={site.id} className="site-card">
               <h3>{site.ObjectNameOnDoc}</h3>
-              <p><strong>Category:</strong> {site.Category || "N/A"}</p>
-              <p><strong>Location:</strong> {site.Location || "N/A"}</p>
-              <p><strong>Security Status:</strong> {site.SecurityStatus || "N/A"}</p>
+              <p><strong>Категория:</strong> {site.Category || "N/A"}</p>
+              <p><strong>Расположение:</strong> {site.Location || "N/A"}</p>
+              <p><strong>Статус:</strong> {site.SecurityStatus || "N/A"}</p>
             </div>
           ))
         ) : (

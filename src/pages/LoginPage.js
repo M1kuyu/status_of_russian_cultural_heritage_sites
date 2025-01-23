@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Styles.css'; // Убедитесь, что у вас есть стили для кнопок и форм
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -13,33 +14,35 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic
+    // Логика авторизации
     console.log(credentials);
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="login-container">
+      <h2>Вход</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username:</label>
+          <label>Имя пользователя:</label>
           <input
             type="text"
             name="username"
             value={credentials.username}
             onChange={handleChange}
+            required
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Пароль:</label>
           <input
             type="password"
             name="password"
             value={credentials.password}
             onChange={handleChange}
+            required
           />
         </div>
-        <button className="btn" type="submit">Login</button>
+        <button className="btn" type="submit">Войти</button>
       </form>
     </div>
   );

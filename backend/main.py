@@ -59,10 +59,11 @@ async def get_sites(db: AsyncSession = Depends(get_db)):
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+
 @app.post("/register/")
-async def register_user(username: str, password: str, db: AsyncSession = Depends(get_db)):
+async def register_user(username: str, email: str, password: str, db: AsyncSession = Depends(get_db)):
     hashed_password = pwd_context.hash(password)
-    user = User(username=username, hashed_password=hashed_password)
+    user = User(username=username, email=email, hashed_password=hashed_password)  # Include email
     db.add(user)
     await db.commit()
     return {"message": "User registered successfully!"}
