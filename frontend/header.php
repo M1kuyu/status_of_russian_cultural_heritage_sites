@@ -10,7 +10,7 @@
     <header class="header">
         <h1>Отслеживание объектов культурного наследия</h1>
         <nav>
-            <a href="about.php">О проекте</a>
+            <a href="index.php">О проекте</a>
             <a href="sites.php">Объекты</a>
             <a href="changes.php">Журнал изменений</a>
         </nav>
