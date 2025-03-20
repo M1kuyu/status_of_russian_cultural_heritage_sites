@@ -2,9 +2,8 @@ from sqlalchemy import Column, Integer, String, JSON
 from app.database import Base
 
 class HeritageSite(Base):
-    __tablename__ = "heritage_sites_1"
+    __tablename__ = "data_530_2025_03_05_289_xlsx___0"
 
-    id = Column(Integer, primary_key=True, index=True)
     ObjectNameOnDoc = Column(String, nullable=True)
     AISID = Column(String, nullable=True)
     USRCHONumber = Column(String, nullable=True)
@@ -18,6 +17,5 @@ class HeritageSite(Base):
     SecurityStatus = Column(String, nullable=True)
     Category = Column(String, nullable=True)
     ObjectType = Column(String, nullable=True)
-    global_id = Column(Integer, nullable=True)
-    geoData = Column(JSON, nullable=True)
-    geodata_center = Column(JSON, nullable=True)
+    global_id = Column(Integer, primary_key=True, index=True)
+
